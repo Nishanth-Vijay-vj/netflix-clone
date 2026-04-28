@@ -8,6 +8,15 @@ RUN ./node_modules/.bin/ng build
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
-# Note: Ensure the path below matches your angular.json outputPath
-COPY --from=build /app/dist/frontend /usr/share/nginx/html  || COPY --from=build /app/dist/frontend /usr/share/nginx/html
+
+# Remove default nginx files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy the build output from Stage 1
+# Angular 17+ builds to dist/frontend/browser
+COPY --from=build /app/dist/frontend/browser /usr/share/nginx/html
+
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+
