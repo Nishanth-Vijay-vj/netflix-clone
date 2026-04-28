@@ -2,7 +2,7 @@
   "name": "netflix-frontend",
   "version": "0.0.0",
   "scripts": {
-    "build": "ng build --configuration production"
+    "build": "ng build"
   },
   "dependencies": {
     "@angular/common": "^17.0.0",
