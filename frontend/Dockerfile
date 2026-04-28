@@ -12,9 +12,8 @@ FROM nginx:alpine
 # Remove default nginx files
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy the build output from Stage 1
-# Angular 17+ builds to dist/frontend/browser
-COPY --from=build /app/dist/frontend/usr/share/nginx/html
+# Corrected: Added a SPACE between /app/dist/frontend and /usr/share/nginx/html
+COPY --from=build /app/dist/frontend /usr/share/nginx/html
 
 EXPOSE 80
 
