@@ -1,26 +1,19 @@
 package com.netflix.controller;
-
-import com.netflix.model.Movie;
-import com.netflix.model.MovieRepository;
+import com.netflix.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/movies")
-@CrossOrigin(origins = "*")
+@RestController @RequestMapping("/api/movies")
+@CrossOrigin(origins = "*") 
 public class MovieController {
-
-    @Autowired
-    private MovieRepository repository;
+    @Autowired private MovieRepository repo;
 
     @GetMapping
-    public List<Movie> getAllMovies() {
-        return repository.findAll();
-    }
+    public List<Movie> getAll() { return repo.findAll(); }
 
-    @PostMapping
-    public Movie addMovie(@RequestBody Movie movie) {
-        return repository.save(movie);
+    @GetMapping("/category/{cat}")
+    public List<Movie> getByCat(@PathVariable String cat) { 
+        return repo.findByCategory(cat); 
     }
 }
