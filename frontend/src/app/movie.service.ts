@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
 export class MovieService {
   // Use your Master's Public IP
-  private apiUrl = 'http://15.206.27.63';
+  private apiUrl = 'http://13.235.241.23';
 
   constructor(private http: HttpClient) { }
 
