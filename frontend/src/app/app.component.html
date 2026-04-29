@@ -1,23 +1,22 @@
 <div class="netflix-container">
-  <!-- Navbar -->
   <nav class="navbar">
     <img src="https://wikimedia.org" class="logo">
   </nav>
 
-  <!-- Hero Banner -->
   <header class="banner">
     <div class="banner-content">
-      <h1>Stranger Things</h1>
-      <button class="btn">Play</button>
-      <button class="btn gray">My List</button>
-      <p class="description">When a young boy vanishes, a small town uncovers a mystery involving secret experiments...</p>
+      <h1>Featured Title</h1>
+      <div class="banner-buttons">
+        <button class="btn play">Play</button>
+        <button class="btn list">My List</button>
+      </div>
+      <p class="description">Watch the latest trending movies and TV shows now.</p>
     </div>
   </header>
 
-  <!-- Movie Rows -->
-  <div class="row" *ngFor="let category of ['Trending', 'Action', 'Originals']">
-    <h2>{{category}}</h2>
-    <div class="posters">
+  <div class="row">
+    <h2>Trending Now</h2>
+    <div class="posters-container">
       <img *ngFor="let movie of movies" 
            [src]="movie.posterPath" 
            class="poster" 
