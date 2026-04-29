@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController @RequestMapping("/api/movies")
-@CrossOrigin(origins = "*") 
+@CrossOrigin(origins = "http://13.235.241.23:30080") 
 public class MovieController {
     @Autowired private MovieRepository repo;
 
